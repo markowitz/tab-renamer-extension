@@ -13,7 +13,6 @@ A lightweight Manifest V3 extension for Chrome and Chromium-based browsers (Edge
 - **Smart priority** — more specific rules always win (exact > path prefix > domain)
 - **Longest-prefix wins** — if multiple prefix rules match, the most specific one applies
 - **Fights title resets** — a `MutationObserver` re-applies your name if the page overwrites it
-- **Right-click shortcut** — "Rename this tab" context menu opens a quick rename window
 - **Options page** — view, edit, and delete all saved renames in one place
 
 ---
@@ -43,9 +42,6 @@ Click the **✏️** icon in the toolbar while on any tab.
 3. Press **Enter** or click **Save**
 
 To remove a rename, click **Clear** — the tab reloads with its original title.
-
-### Right-click context menu
-Right-click anywhere on a page and choose **Rename this tab**. A small popup window opens with the same controls, and closes automatically after saving.
 
 ### Options page
 Click **Manage all renames →** at the bottom of the popup (or visit `chrome://extensions` → Tab Renamer → Extension options) to see a table of every saved rename. You can edit names inline or delete individual entries.
