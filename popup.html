@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tab Renamer</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #fff;
+      width: 320px;
+      padding: 16px;
+      color: #111;
+    }
+
+    h1 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #1e40af;
+    }
+
+    .url {
+      font-size: 11px;
+      color: #6b7280;
+      margin-bottom: 10px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    label {
+      font-size: 12px;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 7px 10px;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      font-size: 13px;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    input[type="text"]:focus { border-color: #3b82f6; }
+
+    .actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    button {
+      flex: 1;
+      padding: 7px 0;
+      border: none;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+
+    button:hover { opacity: 0.85; }
+
+    #saveBtn { background: #2563eb; color: #fff; }
+    #clearBtn { background: #f3f4f6; color: #374151; }
+
+    .footer {
+      margin-top: 12px;
+      font-size: 11px;
+      text-align: center;
+      color: #9ca3af;
+    }
+
+    .footer a { color: #6b7280; text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+
+    .scope-toggle {
+      display: flex;
+      background: #f3f4f6;
+      border-radius: 7px;
+      padding: 3px;
+      gap: 2px;
+      margin-bottom: 10px;
+    }
+
+    .scope-btn {
+      flex: 1;
+      padding: 5px 0;
+      border: none;
+      border-radius: 5px;
+      font-size: 11px;
+      font-weight: 500;
+      cursor: pointer;
+      background: transparent;
+      color: #6b7280;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .scope-btn.active {
+      background: #fff;
+      color: #1e40af;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
+
+    #pathRow { margin-bottom: 10px; }
+    #pathRow label { font-size: 12px; font-weight: 500; display: block; margin-bottom: 4px; }
+    #pathInput {
+      width: 100%;
+      padding: 7px 10px;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      font-size: 12px;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    #pathInput:focus { border-color: #3b82f6; }
+
+    #status {
+      font-size: 11px;
+      color: #16a34a;
+      min-height: 14px;
+      margin-top: 6px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>✏️ Tab Renamer</h1>
+  <div class="scope-toggle">
+    <button class="scope-btn active" id="scopeExact">This page</button>
+    <button class="scope-btn" id="scopeBase">Entire domain</button>
+    <button class="scope-btn" id="scopePrefix">Custom path</button>
+  </div>
+  <div class="url" id="tabUrl" title=""></div>
+  <div id="pathRow" hidden>
+    <label for="pathInput">URL prefix</label>
+    <input type="text" id="pathInput" autocomplete="off" spellcheck="false" />
+  </div>
+  <label for="nameInput">Custom name</label>
+  <input type="text" id="nameInput" placeholder="Enter a custom tab name…" autocomplete="off" />
+  <div id="status"></div>
+  <div class="actions">
+    <button id="saveBtn">Save</button>
+    <button id="clearBtn">Clear</button>
+  </div>
+  <div class="footer">
+    <a id="optionsLink" href="#">Manage all renames →</a>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
